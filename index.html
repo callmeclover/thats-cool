@@ -107,16 +107,19 @@ input:checked + .slider:before {
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
+async function doStuff() {
+await delay(1000);
+document.fgColor = Math.floor(Math.random()*16777215).toString(16);
+document.bgColor = Math.floor(Math.random()*16777215).toString(16);
+await delay(1000);
+}
 document.addEventListener('DOMContentLoaded', function () {
   var checkbox = document.querySelector('input[type="checkbox"]');
 
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
 while (checkbox.checked) {
-delay(500)
-document.fgColor = Math.floor(Math.random()*16777215).toString(16);
-document.bgColor = Math.floor(Math.random()*16777215).toString(16);
-delay(500)
+doStuff()
 }
       console.log('Checked');
     } else {
