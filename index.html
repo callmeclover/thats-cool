@@ -109,7 +109,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
-      // do this
+while (checkbox.checked) {
+document.fgColor = Math.floor(Math.random()*16777215).toString(16);
+document.bgColor = Math.floor(Math.random()*16777215).toString(16);
+}
       console.log('Checked');
     } else {
       // do that
