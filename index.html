@@ -1,0 +1,142 @@
+<html class=""><head>
+<style>
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+</head><body bgcolor="a24a99" text="5a4193">
+<div>
+<h6>that's cool.</h6>
+<h5>that's cool.</h5><h4>that's cool.</h4><h3>that's cool.</h3>
+<h2>that's cool.</h2>
+<h1>that's cool.</h1>
+</div>
+<div>
+<h1>that's cool.</h1>
+<h2>that's cool.</h2><h3>that's cool.</h3><h4>that's cool.</h4>
+<h5>that's cool.</h5>
+<h6>that's cool.</h6>
+</div>
+<div style="text-align:center;position:relative;bottom:530px;">
+<h6>that's cool.</h6>
+<h5>that's cool.</h5><h4>that's cool.</h4><h3>that's cool.</h3>
+<h2>that's cool.</h2>
+<h1>that's cool.</h1>
+</div><div style="text-align:center;position:relative;bottom:530px;">
+<h1>that's cool.</h1>
+<h2>that's cool.</h2><h3>that's cool.</h3><h4>that's cool.</h4>
+<h5>that's cool.</h5>
+<h6>that's cool.</h6>
+</div><div style="text-align:right;position:relative;bottom:1056px;">
+<h6>that's cool.</h6>
+<h5>that's cool.</h5><h4>that's cool.</h4><h3>that's cool.</h3>
+<h2>that's cool.</h2>
+<h1>that's cool.</h1>
+</div><div style="text-align:right;position:relative;bottom:1056px;">
+<h1>that's cool.</h1>
+<h2>that's cool.</h2><h3>that's cool.</h3><h4>that's cool.</h4>
+<h5>that's cool.</h5>
+<h6>that's cool.</h6>
+</div>
+<div style="text-align:center;">
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      // do this
+      console.log('Checked');
+    } else {
+      // do that
+      console.log('Not checked');
+    }
+  });
+});
+var mousedownID = -1;  //Global ID of mouse down interval
+function mousedown(event) {
+  if(mousedownID==-1)  //Prevent multimple loops!
+     mousedownID = setInterval(whilemousedown, 100 /*execute every 100ms*/);
+
+
+}
+function mouseup(event) {
+   if(mousedownID!=-1) {  //Only stop if exists
+     clearInterval(mousedownID);
+     mousedownID=-1;
+   }
+}
+function whilemousedown() {
+document.fgColor = Math.floor(Math.random()*16777215).toString(16);
+document.bgColor = Math.floor(Math.random()*16777215).toString(16);
+}
+//Assign events
+document.addEventListener("mousedown", mousedown);
+document.addEventListener("mouseup", mouseup);
+//Also clear the interval when user leaves the window with mouse
+document.addEventListener("mouseout", mouseup);
+</script></body></html>
